@@ -14,4 +14,4 @@ fig = go.Figure(data=[go.Bar(x=x_data, y=y_data)])
 fig.update_layout(title='Random Bar Plot', xaxis_title='X Axis', yaxis_title='Y Axis')
 
 # Show the plot
-fig.show()
+st.plotly_chart(fig)
