@@ -1,6 +1,8 @@
 import streamlit as st
 import plotly.graph_objects as go
 
+st.header("Title")
+
 # Generate some random data for the bar plot
 x_data = ['A', 'B', 'C', 'D', 'E']
 y_data = [1, 2, 3, 4, 5]
