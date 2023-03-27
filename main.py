@@ -2,6 +2,7 @@ import streamlit as st
 import plotly.graph_objects as go
 
 st.header("Title")
+st.subheader("Sub Title")
 
 # Generate some random data for the bar plot
 x_data = ['A', 'B', 'C', 'D', 'E']
