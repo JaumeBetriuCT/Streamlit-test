@@ -1,7 +1,5 @@
 import streamlit as st
-import pickle
 from pathlib import Path
-import os
 import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
@@ -35,22 +33,30 @@ if authentication_status:
     with col2:
         st.image(msf_log, width=700)
 
-    model_option = st.selectbox(
-        "Please, select the model you would like to acces:", 
-        ["Model 1", "Model 2", "Model 3"]
+    st.sidebar.title("Choose the model:")
+    model_option = st.sidebar.selectbox(
+        label = "Please, select the model you would like to acces:", 
+        options = ["Model 1", "Model 2", "Model 3"],
+        index = 1
     )
     
     if model_option == "Model 2":
         time.sleep(5)
         with st.spinner("Loading dashboard"):
-
+            st.write("<h1 style='font-size: 60px;'>Model 2:</h1>", unsafe_allow_html=True)
             run_cluster2()
     
-    # if model_option == "Model 1":
-    #     run_cluster1()
+    if model_option == "Model 1":
+        time.sleep(5)
+        with st.spinner("Loading dashboard"):
+            st.write("<h1 style='font-size: 60px;'>Model 1:</h1>", unsafe_allow_html=True)
+    #       run_cluster1()
     
-    # if model_option == "Model 3":
-    #     run_cluster3()
+    if model_option == "Model 3":
+        time.sleep(5)
+        with st.spinner("Loading dashboard"):
+            st.write("<h1 style='font-size: 60px;'>Model 3:</h1>", unsafe_allow_html=True)
+    #       run_cluster1()
 
     authenticator.logout('Logout', 'main')
 
