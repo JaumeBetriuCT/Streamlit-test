@@ -10,7 +10,6 @@ from utils import dowload_button, detect_quarter, get_months_between_dates, name
 from quarter_comparison import run_quarter_comparison
 
 def run_cluster2():
-    st.write("kk")
     df = pd.read_csv("data_model2.csv")
 
     cluster_labels = sorted(df["cluster_labels"].unique())
