@@ -1,0 +1,13 @@
+,cluster_labels,MoreThanAvgDonator_Dec_Jan_Feb_quarter,MoreThanAvgDonator_Mar_Apr_May_quarter,MoreThanAvgDonator_Jun_Jul_Aug_quarter,MoreThanAvgDonator_Set_Oct_Nov_quarter
+0,cluster_0,0,4000,2516,3074
+1,cluster_1,6230,4578,7311,0
+2,cluster_10,5274,5274,0,5274
+3,cluster_2,9533,1203,1009,1194
+4,cluster_3,0,3744,4856,7921
+5,cluster_4,16027,16027,16027,16027
+6,cluster_5,5010,4396,1891,1524
+7,cluster_6,0,1295,2704,0
+8,cluster_7,5523,0,5523,5523
+9,cluster_8,2869,2869,0,0
+10,cluster_9,3454,0,0,3448
+11,cluster_outliers,265,425,419,104

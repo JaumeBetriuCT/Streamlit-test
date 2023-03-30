@@ -178,7 +178,7 @@ def run_cluster2():
             st.info(f"You have selected the quarters: {quarters_name}")
 
 
-    run_quarter_comparison(quarters_name)
+    run_quarter_comparison(quarters_name, df)
         
     # END COMPARISON BETWEEN QUARTERS
 

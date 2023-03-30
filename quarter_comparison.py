@@ -1,34 +1,64 @@
 import pandas as pd
-import plotly.graph_objects as go
+import plotly.express as px
 import streamlit as st
 
-def run_quarter_comparison(quarters_name):
+def run_quarter_comparison(quarters_name, df):
 
-    st.write("To do")
+    quarters_name = ["MoreThanAvgDonator_" + q for q in quarters_name]
 
-    # colors = px.colors.qualitative.Set3
+    quarters = df.groupby("cluster_labels").sum().reset_index()[["cluster_labels"] + quarters_name]
 
-    # fig_chanels = go.Figure()
-    # for i, chanel_dataset in enumerate(chanel_datasets):
-    #     # We take the id as the y axis because after doing the groupby the column id represents the count
-    #     fig_chanels.add_trace(
-    #         go.Bar(
-    #             x=chanel_dataset["cluster_labels"], 
-    #             y=chanel_dataset["id"], 
-    #             text=chanel_dataset["id"], 
-    #             name=chanel_dataset["canal_fav"].unique()[0], 
-    #             textposition='auto', 
-    #             marker_color=colors[i]
-    #         )
-    #     )
+    quarters_melted = pd.melt(
+        quarters, 
+        id_vars=["cluster_labels"], 
+        var_name="quarter_category", 
+        value_name="quarter_value"
+    )
 
-    # # update the layout of the plot
-    # fig_chanels.update_layout(
-    #     xaxis_title='Cluster',
-    #     yaxis_title='Contacts',
-    #     height=700,
-    #     width=1700,
-    #     barmode="stack"
-    # )
-    
-    # st.plotly_chart(fig_chanels)
+    fig_chanels = px.scatter(
+        quarters_melted, 
+        x="cluster_labels", 
+        y="quarter_category", 
+        color="quarter_category", 
+        size="quarter_value"
+    )
+
+    fig_chanels.update_layout(
+        xaxis_title='Cluster',
+        yaxis_title='Contacts',
+        height=500,
+        width=1700,
+        legend=dict(
+            font=dict(
+                size=17
+            )
+        ),
+        xaxis=dict(
+            title=dict(
+                font=dict(
+                    size=17
+                )
+            ),
+            tickfont=dict(
+                size=17
+            )
+        ),
+        yaxis=dict(
+            title=dict(
+                font=dict(
+                    size=17
+                )
+            ),
+            tickfont=dict(
+                size=17
+            )
+        )
+    )
+
+    fig_chanels.update_traces(
+        marker=dict(
+            sizeref=8
+        )
+    )
+
+    st.plotly_chart(fig_chanels)
